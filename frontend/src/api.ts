@@ -25,21 +25,37 @@ export interface DepartmentRecord {
 export interface Application {
   id: string;
   ubid: string;
-  entity_name: string;
-  status: string;
-  created_at: string;
-  updated_at: string;
+  // backend canonical fields
+  business_name?: string;
+  application_status?: string;
+  service_type?: string;
+  sws_reference_no?: string;
+  submitted_at?: string;
+  last_synced_at?: string | null;
+  // legacy aliases (kept for backwards compat in older UI code)
+  entity_name?: string;
+  status?: string;
+  created_at?: string;
+  updated_at?: string;
   department_records?: DepartmentRecord[];
 }
 
 export interface SyncEvent {
   id: string;
   direction: 'sws_to_dept' | 'dept_to_sws';
-  department: string;
+  // backend canonical
+  department_name?: string;
+  initiated_at?: string;
+  completed_at?: string | null;
+  has_conflict?: boolean;
+  attempt_count?: number;
+  error_message?: string | null;
+  // legacy aliases (some pages may still read these)
+  department?: string;
+  timestamp?: string;
   ubid: string;
   event_type: string;
   status: 'completed' | 'pending' | 'conflict' | 'failed';
-  timestamp: string;
   source_schema?: Record<string, unknown>;
   translated_schema?: Record<string, unknown>;
   payload_hash?: string;
@@ -47,17 +63,23 @@ export interface SyncEvent {
 
 export interface Conflict {
   id: string;
-  application_id: string;
+  application_id?: string;
   ubid: string;
-  department: string;
+  // backend canonical
+  department_name?: string;
+  detected_at?: string;
+  resolution?: string; // unresolved | sws_wins | dept_wins | manual | merged
+  // legacy aliases (used by some pages)
+  department?: string;
+  status?: 'unresolved' | 'resolved';
+  created_at?: string;
   field_name: string;
   sws_value: string;
   dept_value: string;
   severity: 'critical' | 'warning' | 'info';
-  status: 'unresolved' | 'resolved';
   resolved_value?: string;
+  resolver_notes?: string;
   resolution_notes?: string;
-  created_at: string;
   resolved_at?: string;
 }
 
@@ -96,12 +118,24 @@ export function getApplication(id: string): Promise<Application> {
 
 /* ---------- Sync ---------- */
 
-export function syncSwsToDept(): Promise<SyncResult> {
-  return request<SyncResult>('/sync/sws-to-dept', { method: 'POST' });
+// "Sync All" — runs both directions for every UBID in one shot.
+// The /sync/all endpoint accepts no body and returns a summary.
+export interface SyncAllResult {
+  sws_to_dept: { applications_processed: number; departments_synced: number; conflicts_detected: number };
+  dept_to_sws: { departments_processed: number; records_synced: number; conflicts_detected: number };
 }
 
-export function syncDeptToSws(): Promise<SyncResult> {
-  return request<SyncResult>('/sync/dept-to-sws', { method: 'POST' });
+export function syncAll(): Promise<SyncAllResult> {
+  return request<SyncAllResult>('/sync/all', { method: 'POST' });
+}
+
+// Legacy aliases — both call /sync/all so old buttons keep working
+export function syncSwsToDept(): Promise<SyncAllResult> {
+  return syncAll();
+}
+
+export function syncDeptToSws(): Promise<SyncAllResult> {
+  return syncAll();
 }
 
 export function listSyncEvents(): Promise<SyncEvent[]> {
@@ -120,11 +154,18 @@ export function listConflicts(): Promise<Conflict[]> {
 
 export function resolveConflict(
   id: string,
-  data: { resolved_value: string; resolution_notes?: string },
+  data: { resolution?: string; resolved_value: string; resolution_notes?: string; notes?: string },
 ): Promise<Conflict> {
+  // Backend ResolveConflictRequest expects: { resolution, resolved_value, notes }
+  // - resolution defaults to "manual" when caller doesn't provide one (legacy UI passes resolved_value only)
+  const body = {
+    resolution: data.resolution ?? 'manual',
+    resolved_value: data.resolved_value,
+    notes: data.notes ?? data.resolution_notes ?? '',
+  };
   return request<Conflict>(`/conflicts/${id}/resolve`, {
     method: 'PUT',
-    body: JSON.stringify(data),
+    body: JSON.stringify(body),
   });
 }
 

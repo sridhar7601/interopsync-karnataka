@@ -88,7 +88,7 @@ export default function AuditTrail() {
     return events.filter((ev) => {
       if (dirFilter !== 'all' && ev.direction !== dirFilter) return false
       if (statusFilter !== 'all' && ev.status !== statusFilter) return false
-      if (deptFilter !== 'all' && ev.department !== deptFilter) return false
+      if (deptFilter !== 'all' && (ev.department_name ?? ev.department) !== deptFilter) return false
       return true
     })
   }, [events, dirFilter, statusFilter, deptFilter])
@@ -193,7 +193,7 @@ export default function AuditTrail() {
                 >
                   <div className="flex items-center gap-3 flex-wrap">
                     <DirectionArrow direction={ev.direction} />
-                    <span className="text-sm font-medium text-gray-700">{ev.department}</span>
+                    <span className="text-sm font-medium text-gray-700">{ev.department_name ?? ev.department ?? '—'}</span>
                     <span className="text-xs text-gray-400 font-mono">{ev.ubid}</span>
                     <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
                       {ev.event_type}
@@ -202,7 +202,10 @@ export default function AuditTrail() {
                   <div className="flex items-center gap-3">
                     <StatusBadge status={ev.status} />
                     <span className="text-xs text-gray-400 whitespace-nowrap">
-                      {new Date(ev.timestamp).toLocaleString()}
+                      {(() => {
+                        const ts = ev.initiated_at ?? ev.timestamp
+                        return ts ? new Date(ts).toLocaleString() : '—'
+                      })()}
                     </span>
                     {isExpanded ? (
                       <ChevronUp className="h-4 w-4 text-gray-400" />

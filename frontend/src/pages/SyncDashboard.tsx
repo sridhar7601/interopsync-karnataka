@@ -122,7 +122,12 @@ export default function SyncDashboard({
   }
 
   const totalApps = apps.length
-  const syncedDepts = new Set(events.filter((e) => e.status === 'completed').map((e) => e.department)).size
+  const syncedDepts = new Set(
+    events
+      .filter((e) => e.status === 'completed')
+      .map((e) => e.department_name ?? e.department)
+      .filter(Boolean),
+  ).size
   const pendingSyncs = events.filter((e) => e.status === 'pending').length
   const unresolvedConflicts = stats?.unresolved ?? 0
 
@@ -250,13 +255,16 @@ export default function SyncDashboard({
                 <li key={ev.id} className="px-5 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <DirectionArrow direction={ev.direction} />
-                    <span className="text-sm font-medium text-gray-700">{ev.department}</span>
+                    <span className="text-sm font-medium text-gray-700">{ev.department_name ?? ev.department ?? '—'}</span>
                     <span className="text-xs text-gray-400 font-mono">{ev.ubid}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <StatusBadge status={ev.status} />
                     <span className="text-xs text-gray-400">
-                      {new Date(ev.timestamp).toLocaleString()}
+                      {(() => {
+                        const ts = ev.initiated_at ?? ev.timestamp
+                        return ts ? new Date(ts).toLocaleString() : '—'
+                      })()}
                     </span>
                   </div>
                 </li>
@@ -291,17 +299,17 @@ export default function SyncDashboard({
               <tbody className="divide-y divide-gray-100">
                 {apps.map((app) => {
                   const deptRecords = app.department_records ?? []
-                  const lastSync = deptRecords
-                    .map((d) => d.last_synced)
-                    .filter(Boolean)
-                    .sort()
-                    .pop()
+                  const lastSync = app.last_synced_at
+                    ?? deptRecords.map((d) => d.last_synced).filter(Boolean).sort().pop()
+                  const created = app.submitted_at ?? app.created_at
+                  const status = app.application_status ?? app.status ?? 'pending'
+                  const name = app.business_name ?? app.entity_name ?? app.sws_reference_no ?? '—'
                   return (
                     <tr key={app.id} className="hover:bg-gray-50 transition-colors">
                       <td className="px-5 py-3 font-mono text-xs text-gray-600">{app.ubid}</td>
-                      <td className="px-5 py-3 font-medium text-gray-900">{app.entity_name}</td>
+                      <td className="px-5 py-3 font-medium text-gray-900">{name}</td>
                       <td className="px-5 py-3">
-                        <StatusBadge status={app.status} />
+                        <StatusBadge status={status} />
                       </td>
                       <td className="px-5 py-3">
                         {deptRecords.length > 0 ? (
@@ -317,14 +325,14 @@ export default function SyncDashboard({
                             ))}
                           </div>
                         ) : (
-                          <span className="text-gray-400 text-xs">None</span>
+                          <span className="text-gray-400 text-xs">—</span>
                         )}
                       </td>
                       <td className="px-5 py-3 text-xs text-gray-500">
-                        {lastSync ? new Date(lastSync).toLocaleString() : '---'}
+                        {lastSync ? new Date(lastSync).toLocaleString() : '—'}
                       </td>
                       <td className="px-5 py-3 text-xs text-gray-500">
-                        {new Date(app.created_at).toLocaleDateString()}
+                        {created ? new Date(created).toLocaleDateString() : '—'}
                       </td>
                     </tr>
                   )

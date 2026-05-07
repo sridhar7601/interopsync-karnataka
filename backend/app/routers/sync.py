@@ -212,3 +212,50 @@ def retry_failed_syncs(req: _RetryRequest = _RetryRequest(), db: Session = Depen
         "still_failed": still_failed,
         "max_attempts": req.max_attempts,
     }
+
+
+@router.post("/all")
+def sync_all(db: Session = Depends(get_db)):
+    """Run both directions for every UBID — convenience for the dashboard 'Sync All' button.
+
+    Walks every SWS application, propagates SWS→Dept for all matching depts,
+    then for each known dept runs Dept→SWS to pick up reverse changes.
+    Idempotency hash prevents duplicate writes; a no-change run is fully safe.
+    """
+    sws_results = []
+    apps = db.query(SWSApplication).all()
+    for app in apps:
+        try:
+            r = sync_sws_to_departments(app, db, department_names=None)
+            sws_results.append(r)
+        except Exception as exc:
+            sws_results.append({"error": str(exc)[:200], "ubid": app.ubid})
+
+    # Get list of distinct departments in the system, then pull back changes
+    dept_names = [
+        row[0]
+        for row in db.query(DepartmentRecord.department_name).distinct().all()
+    ]
+    dept_results = []
+    for dept_name in dept_names:
+        try:
+            r = sync_department_to_sws(db, dept_name, dept_record_id=None)
+            dept_results.append({"department": dept_name, **r})
+        except Exception as exc:
+            dept_results.append({"department": dept_name, "error": str(exc)[:200]})
+
+    def _count(v):
+        return len(v) if isinstance(v, list) else (v if isinstance(v, int) else 0)
+
+    return {
+        "sws_to_dept": {
+            "applications_processed": len(sws_results),
+            "departments_synced": sum(_count(r.get("departments_synced", 0)) for r in sws_results),
+            "conflicts_detected": sum(_count(r.get("conflicts_detected", 0)) for r in sws_results),
+        },
+        "dept_to_sws": {
+            "departments_processed": len(dept_results),
+            "records_synced": sum(_count(r.get("records_synced", 0)) for r in dept_results),
+            "conflicts_detected": sum(_count(r.get("conflicts_detected", 0)) for r in dept_results),
+        },
+    }

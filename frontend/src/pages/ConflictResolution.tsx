@@ -146,7 +146,11 @@ export default function ConflictResolution() {
         <div className="space-y-4">
           {conflicts.map((conflict) => {
             const isResolving = resolvingId === conflict.id
-            const isResolved = conflict.status === 'resolved'
+            const isResolved =
+              conflict.status === 'resolved' ||
+              (!!conflict.resolution && conflict.resolution !== 'unresolved')
+            const detectedAt = conflict.detected_at ?? conflict.created_at
+            const dept = conflict.department_name ?? conflict.department ?? '—'
             return (
               <div
                 key={conflict.id}
@@ -162,7 +166,7 @@ export default function ConflictResolution() {
                       {conflict.field_name}
                     </span>
                     <span className="text-xs text-gray-400 font-mono">{conflict.ubid}</span>
-                    <span className="text-xs text-gray-400">{conflict.department}</span>
+                    <span className="text-xs text-gray-400">{dept}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     {isResolved ? (
@@ -177,7 +181,7 @@ export default function ConflictResolution() {
                       </span>
                     )}
                     <span className="text-xs text-gray-400">
-                      {new Date(conflict.created_at).toLocaleString()}
+                      {detectedAt ? new Date(detectedAt).toLocaleString() : '—'}
                     </span>
                   </div>
                 </div>
