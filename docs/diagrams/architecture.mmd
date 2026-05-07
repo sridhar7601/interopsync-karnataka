@@ -1,0 +1,102 @@
+---
+title: Theme 2 — InteropSync Architecture
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#8b5cf6'
+    primaryTextColor: '#fff'
+    primaryBorderColor: '#5b21b6'
+    lineColor: '#64748b'
+    fontFamily: 'Inter, system-ui, sans-serif'
+---
+flowchart LR
+    subgraph SWS["SINGLE WINDOW SYSTEM"]
+      SWS_API["SWS API<br/>(forward-looking front door)"]
+      SWS_DB[(SWS DB)]
+    end
+
+    subgraph Layer["INTEROPSYNC MIDDLEWARE (non-invasive)"]
+      direction TB
+      INGEST["Ingest<br/>(both directions)"]
+
+      subgraph Sync["BIDIRECTIONAL SYNC ENGINE"]
+        IDEM["SHA-256 Idempotency<br/>(at-least-once · safe retries)"]
+        TRANSLATE["Schema Translator<br/>(5 dept mappings:<br/>Labour · KSPCB · Comm.Tax<br/>· Factories · Fire Safety)"]
+        DISCOVERY["Dept→SWS Discovery<br/>(periodic delta scan,<br/>legacy systems don't emit events)"]
+        RETRY["Retry Failed<br/>(exponential backoff)"]
+      end
+
+      subgraph Conflict["CONFLICT DETECTOR"]
+        FUZZY["rapidfuzz Match<br/>+ status comparison"]
+        SEVERITY["Severity Tier<br/>(Critical / Warning / Info)"]
+        WORKFLOW["5-State Workflow<br/>UNRESOLVED →<br/>SWS_WINS / DEPT_WINS<br/>/ MERGED / MANUAL"]
+      end
+
+      AUDIT["Audit Trail<br/>(source · target · payload-before<br/>· payload-after · hash · reviewer)"]
+
+      AI["Azure GPT-4.1<br/>(grounded narration)"]
+      AI_REC["AI Conflict Recommendation"]
+      AI_BRIEF["AI Morning Briefing"]
+      AI_AUDIT["AI Audit Summary"]
+    end
+
+    subgraph Depts["40+ DEPARTMENT SYSTEMS (legacy, unmodified)"]
+      LABOUR["Labour"]
+      KSPCB["KSPCB"]
+      COMTAX["Commercial Tax"]
+      FACTORIES["Factories"]
+      FIRE["Fire Safety"]
+      MORE["...etc"]
+    end
+
+    subgraph UBID["UBID (from Theme 1)"]
+      JOIN["Join key for both directions"]
+    end
+
+    subgraph UI["FRONTEND (React + Vite)"]
+      DASH["/ Sync Dashboard<br/>(Sync All · Retry Failed)"]
+      CONF["/conflicts<br/>(reviewer + AI rec)"]
+      EVT["/sync-events<br/>(audit trail)"]
+    end
+
+    SWS_API <==> INGEST
+    Depts <==> INGEST
+    INGEST --> IDEM
+    IDEM --> TRANSLATE
+    TRANSLATE --> DISCOVERY
+    DISCOVERY --> RETRY
+
+    INGEST --> FUZZY
+    FUZZY --> SEVERITY
+    SEVERITY --> WORKFLOW
+
+    Sync --> AUDIT
+    Conflict --> AUDIT
+
+    JOIN -.anchors.-> Sync
+    JOIN -.anchors.-> Conflict
+
+    Conflict --> AI_REC
+    AUDIT --> AI_AUDIT
+    Sync --> AI_BRIEF
+    AI_REC --> AI
+    AI_BRIEF --> AI
+    AI_AUDIT --> AI
+
+    AI_BRIEF --> DASH
+    AI_REC --> CONF
+    AUDIT --> EVT
+
+    classDef sws fill:#dbeafe,stroke:#1d4ed8,color:#1e3a8a
+    classDef layer fill:#ede9fe,stroke:#6d28d9,color:#4c1d95
+    classDef dept fill:#fef3c7,stroke:#d97706,color:#92400e
+    classDef ubid fill:#dcfce7,stroke:#15803d,color:#14532d
+    classDef ai fill:#fce7f3,stroke:#be185d,color:#831843
+    classDef ui fill:#f1f5f9,stroke:#334155,color:#0f172a
+
+    class SWS_API,SWS_DB sws
+    class INGEST,IDEM,TRANSLATE,DISCOVERY,RETRY,FUZZY,SEVERITY,WORKFLOW,AUDIT layer
+    class LABOUR,KSPCB,COMTAX,FACTORIES,FIRE,MORE dept
+    class JOIN ubid
+    class AI,AI_REC,AI_BRIEF,AI_AUDIT ai
+    class DASH,CONF,EVT ui
