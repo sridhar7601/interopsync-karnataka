@@ -1,0 +1,23 @@
+ubid,department,conflict_type,sws_value,dept_value
+UBID-KA-UDAXI5012H,commercial_tax,address,"No. 36, MG Road, Bengaluru","No. 252, Jayanagar, Bengaluru"
+UBID-KA-UDAXI5012H,labour,name,Sharma Enterprises,SHARMA ENTERPRISES
+UBID-KA-YYBHB6168M,kspcb,name,Reddy Trading Co.,REDDY TRADING CO.
+UBID-KA-DLZJH1949H,labour,name,Patel & Sons Agency,PATEL & SONS AGENCY
+UBID-KA-DLZJH1949H,kspcb,name,Patel & Sons Agency,PATEL & SONS AGENCY
+UBID-KA-CBKCQ4899I,commercial_tax,status,submitted,rejected
+UBID-KA-CBKCQ4899I,labour,address,"No. 172, Peenya, Bengaluru","No. 327, Jayanagar, Bengaluru"
+UBID-KA-CBKCQ4899I,factories,status,submitted,pending_dept
+UBID-KA-YHFNP8886G,commercial_tax,address,"No. 103, Rajajinagar, Bengaluru","No. 457, HSR Layout, Bengaluru"
+UBID-KA-CTCVH7615D,labour,address,"No. 146, Malleshwaram, Bengaluru","No. 235, Whitefield, Bengaluru"
+UBID-KA-CTCVH7615D,factories,status,submitted,pending_dept
+UBID-KA-ZUQAV5905V,commercial_tax,address,"No. 27, HSR Layout, Bengaluru","No. 482, Rajajinagar, Bengaluru"
+UBID-KA-DCWER1590L,factories,address,"No. 150, Marathahalli, Bengaluru","No. 410, Whitefield, Bengaluru"
+UBID-KA-GWWMP7547H,factories,name,Gupta Traders,GUPTA TRADERS
+UBID-KA-UHIOC5681H,factories,address,"No. 70, Electronic City, Bengaluru","No. 414, HSR Layout, Bengaluru"
+UBID-KA-UHIOC5681H,kspcb,address,"No. 70, Electronic City, Bengaluru","No. 214, Rajajinagar, Bengaluru"
+UBID-KA-VZMXF8657E,labour,name,Agarwal Steel Works,AGARWAL STEEL WORKS
+UBID-KA-YAHGA3496H,labour,address,"No. 33, Rajajinagar, Bengaluru","No. 261, Marathahalli, Bengaluru"
+UBID-KA-CQUKA7882P,factories,address,"No. 28, Malleshwaram, Bengaluru","No. 293, Malleshwaram, Bengaluru"
+UBID-KA-GXPIX9595T,commercial_tax,address,"No. 73, Marathahalli, Bengaluru","No. 258, Jayanagar, Bengaluru"
+UBID-KA-GXPIX9595T,kspcb,status,pending_dept,rejected
+UBID-KA-GXPIX9595T,labour,status,pending_dept,approved

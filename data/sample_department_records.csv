@@ -1,0 +1,52 @@
+department_name,dept_record_id,ubid,dealer_name,proprietor_name,premises_address,pin_code,registration_status,last_updated,building_name,establishment_name,unit_name,factory_name
+commercial_tax,COM-59797,UBID-KA-UDAXI5012H,Sharma Enterprises,Rajesh Sharma,"No. 252, Jayanagar, Bengaluru",560001,submitted,2025-04-10,,,,
+fire_safety,FIR-55082,UBID-KA-UDAXI5012H,,Rajesh Sharma,"No. 36, MG Road, Bengaluru",560001,submitted,2026-09-11,Sharma Enterprises,,,
+labour,LAB-70217,UBID-KA-UDAXI5012H,,Rajesh Sharma,"No. 36, MG Road, Bengaluru",560001,submitted,2026-07-04,,SHARMA ENTERPRISES,,
+kspcb,KSP-93886,UBID-KA-DMCRJ6925S,,Suresh Kumar,"No. 50, Jayanagar, Bengaluru",560004,approved,2026-12-06,,,Kumar Technologies Pvt Ltd,
+factories,FAC-99733,UBID-KA-DMCRJ6925S,,Suresh Kumar,"No. 50, Jayanagar, Bengaluru",560004,approved,2025-11-29,,,,Kumar Technologies Pvt Ltd
+kspcb,KSP-24371,UBID-KA-YYBHB6168M,,Mahesh Reddy,"No. 69, Koramangala, Bengaluru",560034,pending_dept,2025-06-06,,,REDDY TRADING CO.,
+factories,FAC-99192,UBID-KA-YYBHB6168M,,Mahesh Reddy,"No. 69, Koramangala, Bengaluru",560034,pending_dept,2026-03-09,,,,Reddy Trading Co.
+fire_safety,FIR-31174,UBID-KA-TCMMT8668Q,,Ramesh Gowda,"No. 65, Whitefield, Bengaluru",560066,submitted,2026-07-07,Gowda Manufacturing,,,
+kspcb,KSP-79514,UBID-KA-TCMMT8668Q,,Ramesh Gowda,"No. 65, Whitefield, Bengaluru",560066,submitted,2025-01-01,,,Gowda Manufacturing,
+labour,LAB-74042,UBID-KA-TCMMT8668Q,,Ramesh Gowda,"No. 65, Whitefield, Bengaluru",560066,submitted,2025-01-20,,Gowda Manufacturing,,
+labour,LAB-87110,UBID-KA-DLZJH1949H,,Ganesh Patel,"No. 146, Electronic City, Bengaluru",560100,rejected,2026-07-22,,PATEL & SONS AGENCY,,
+kspcb,KSP-10942,UBID-KA-DLZJH1949H,,Ganesh Patel,"No. 146, Electronic City, Bengaluru",560100,rejected,2025-03-14,,,PATEL & SONS AGENCY,
+fire_safety,FIR-17716,UBID-KA-DLZJH1949H,,Ganesh Patel,"No. 146, Electronic City, Bengaluru",560100,rejected,2025-08-23,Patel & Sons Agency,,,
+commercial_tax,COM-28373,UBID-KA-CBKCQ4899I,Singh Constructions,Arun Singh,"No. 172, Peenya, Bengaluru",560058,rejected,2026-03-09,,,,
+labour,LAB-68082,UBID-KA-CBKCQ4899I,,Arun Singh,"No. 327, Jayanagar, Bengaluru",560058,submitted,2026-07-18,,Singh Constructions,,
+factories,FAC-11934,UBID-KA-CBKCQ4899I,,Arun Singh,"No. 172, Peenya, Bengaluru",560058,pending_dept,2025-04-06,,,,Singh Constructions
+commercial_tax,COM-30635,UBID-KA-YHFNP8886G,Rao Solutions,Varun Rao,"No. 457, HSR Layout, Bengaluru",560010,submitted,2025-02-28,,,,
+labour,LAB-20500,UBID-KA-YHFNP8886G,,Varun Rao,"No. 103, Rajajinagar, Bengaluru",560010,submitted,2025-07-10,,Rao Solutions,,
+fire_safety,FIR-76307,UBID-KA-CTCVH7615D,,Kiran Shetty,"No. 146, Malleshwaram, Bengaluru",560003,submitted,2025-09-29,Shetty Industries,,,
+labour,LAB-58434,UBID-KA-CTCVH7615D,,Kiran Shetty,"No. 235, Whitefield, Bengaluru",560003,submitted,2025-10-19,,Shetty Industries,,
+factories,FAC-49651,UBID-KA-CTCVH7615D,,Kiran Shetty,"No. 146, Malleshwaram, Bengaluru",560003,pending_dept,2026-09-19,,,,Shetty Industries
+labour,LAB-93507,UBID-KA-ZUQAV5905V,,Mohan Hegde,"No. 27, HSR Layout, Bengaluru",560102,pending_dept,2025-09-26,,Hegde Services,,
+commercial_tax,COM-83519,UBID-KA-ZUQAV5905V,Hegde Services,Mohan Hegde,"No. 482, Rajajinagar, Bengaluru",560102,pending_dept,2025-01-10,,,,
+factories,FAC-44970,UBID-KA-DCWER1590L,,Vijay Murthy,"No. 410, Whitefield, Bengaluru",560037,approved,2025-06-13,,,,Murthy Associates
+labour,LAB-24168,UBID-KA-DCWER1590L,,Vijay Murthy,"No. 150, Marathahalli, Bengaluru",560037,approved,2026-01-27,,Murthy Associates,,
+fire_safety,FIR-51114,UBID-KA-BPHGO6728J,,Deepa Swamy,"No. 59, MG Road, Bengaluru",560001,rejected,2026-03-23,Swamy Engineers,,,
+factories,FAC-77033,UBID-KA-BPHGO6728J,,Deepa Swamy,"No. 59, MG Road, Bengaluru",560001,rejected,2025-04-29,,,,Swamy Engineers
+fire_safety,FIR-59695,UBID-KA-MSGIB8144A,,Priya Prasad,"No. 134, Jayanagar, Bengaluru",560004,pending_dept,2026-11-25,Prasad Exports,,,
+kspcb,KSP-32810,UBID-KA-MSGIB8144A,,Priya Prasad,"No. 134, Jayanagar, Bengaluru",560004,pending_dept,2026-09-23,,,Prasad Exports,
+labour,LAB-63225,UBID-KA-MSGIB8144A,,Priya Prasad,"No. 134, Jayanagar, Bengaluru",560004,pending_dept,2026-07-16,,Prasad Exports,,
+kspcb,KSP-19545,UBID-KA-AJJGN6279O,,Anita Nair,"No. 114, Koramangala, Bengaluru",560034,approved,2026-04-12,,,Nair Brothers,
+factories,FAC-92544,UBID-KA-AJJGN6279O,,Anita Nair,"No. 114, Koramangala, Bengaluru",560034,approved,2026-08-13,,,,Nair Brothers
+fire_safety,FIR-72216,UBID-KA-GWWMP7547H,,Kavita Gupta,"No. 38, Whitefield, Bengaluru",560066,rejected,2026-04-06,Gupta Traders,,,
+factories,FAC-93579,UBID-KA-GWWMP7547H,,Kavita Gupta,"No. 38, Whitefield, Bengaluru",560066,rejected,2025-10-11,,,,GUPTA TRADERS
+labour,LAB-78327,UBID-KA-GWWMP7547H,,Kavita Gupta,"No. 38, Whitefield, Bengaluru",560066,rejected,2026-05-12,,Gupta Traders,,
+factories,FAC-81582,UBID-KA-UHIOC5681H,,Sunita Jain,"No. 414, HSR Layout, Bengaluru",560100,submitted,2026-09-10,,,,Jain Manufacturing
+labour,LAB-73993,UBID-KA-UHIOC5681H,,Sunita Jain,"No. 70, Electronic City, Bengaluru",560100,submitted,2025-08-13,,Jain Manufacturing,,
+kspcb,KSP-54057,UBID-KA-UHIOC5681H,,Sunita Jain,"No. 214, Rajajinagar, Bengaluru",560100,submitted,2026-11-16,,,Jain Manufacturing,
+factories,FAC-16826,UBID-KA-VZMXF8657E,,Rekha Agarwal,"No. 160, Peenya, Bengaluru",560058,pending_dept,2025-12-25,,,,Agarwal Steel Works
+labour,LAB-95426,UBID-KA-VZMXF8657E,,Rekha Agarwal,"No. 160, Peenya, Bengaluru",560058,pending_dept,2025-02-11,,AGARWAL STEEL WORKS,,
+labour,LAB-15383,UBID-KA-YAHGA3496H,,Neha Mehta,"No. 261, Marathahalli, Bengaluru",560010,pending_dept,2025-12-22,,Mehta Chemicals Pvt Ltd,,
+kspcb,KSP-96706,UBID-KA-YAHGA3496H,,Neha Mehta,"No. 33, Rajajinagar, Bengaluru",560010,pending_dept,2026-01-15,,,Mehta Chemicals Pvt Ltd,
+kspcb,KSP-59674,UBID-KA-CQUKA7882P,,Pooja Shah,"No. 28, Malleshwaram, Bengaluru",560003,submitted,2025-12-11,,,Shah Textiles,
+factories,FAC-37802,UBID-KA-CQUKA7882P,,Pooja Shah,"No. 293, Malleshwaram, Bengaluru",560003,submitted,2025-12-30,,,,Shah Textiles
+commercial_tax,COM-54608,UBID-KA-CQUKA7882P,Shah Textiles,Pooja Shah,"No. 28, Malleshwaram, Bengaluru",560003,submitted,2025-10-14,,,,
+commercial_tax,COM-40217,UBID-KA-TWIRA9464G,Verma Construction Co.,Sanjay Verma,"No. 22, HSR Layout, Bengaluru",560102,rejected,2025-05-04,,,,
+factories,FAC-51359,UBID-KA-TWIRA9464G,,Sanjay Verma,"No. 22, HSR Layout, Bengaluru",560102,rejected,2025-05-03,,,,Verma Construction Co.
+kspcb,KSP-34267,UBID-KA-TWIRA9464G,,Sanjay Verma,"No. 22, HSR Layout, Bengaluru",560102,rejected,2025-07-16,,,Verma Construction Co.,
+commercial_tax,COM-62521,UBID-KA-GXPIX9595T,Kulkarni IT Solutions,Manoj Kulkarni,"No. 258, Jayanagar, Bengaluru",560037,pending_dept,2026-05-19,,,,
+kspcb,KSP-17026,UBID-KA-GXPIX9595T,,Manoj Kulkarni,"No. 73, Marathahalli, Bengaluru",560037,rejected,2025-06-05,,,Kulkarni IT Solutions,
+labour,LAB-21164,UBID-KA-GXPIX9595T,,Manoj Kulkarni,"No. 73, Marathahalli, Bengaluru",560037,approved,2025-09-12,,Kulkarni IT Solutions,,

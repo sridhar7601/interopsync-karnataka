@@ -1,0 +1,21 @@
+sws_reference_no,ubid,business_name,owner_name,registered_address,pincode,business_type,sector,service_type,application_status,pan,gstin,submitted_at
+SWS-38893,UBID-KA-UDAXI5012H,Sharma Enterprises,Rajesh Sharma,"No. 36, MG Road, Bengaluru",560001,llp,technology,renewal,submitted,TRXCK0250G,29TRXCK0250GYZQ,2025-06-13
+SWS-56566,UBID-KA-DMCRJ6925S,Kumar Technologies Pvt Ltd,Suresh Kumar,"No. 50, Jayanagar, Bengaluru",560004,partnership,trading,new_registration,approved,SBFHC2126L,29SBFHC2126LAZN,2026-07-01
+SWS-80644,UBID-KA-YYBHB6168M,Reddy Trading Co.,Mahesh Reddy,"No. 69, Koramangala, Bengaluru",560034,pvt_ltd,technology,signatory_change,pending_dept,BXOSF4861E,29BXOSF4861EFZZ,2026-01-06
+SWS-10425,UBID-KA-TCMMT8668Q,Gowda Manufacturing,Ramesh Gowda,"No. 65, Whitefield, Bengaluru",560066,pvt_ltd,technology,address_change,submitted,ZWASR5261N,29ZWASR5261NAZT,2026-10-03
+SWS-37760,UBID-KA-DLZJH1949H,Patel & Sons Agency,Ganesh Patel,"No. 146, Electronic City, Bengaluru",560100,partnership,trading,signatory_change,rejected,YCMBT7145I,29YCMBT7145IXZR,2026-03-25
+SWS-65519,UBID-KA-CBKCQ4899I,Singh Constructions,Arun Singh,"No. 172, Peenya, Bengaluru",560058,llp,construction,new_registration,submitted,MOSWO2440V,29MOSWO2440VRZM,2025-03-04
+SWS-30289,UBID-KA-YHFNP8886G,Rao Solutions,Varun Rao,"No. 103, Rajajinagar, Bengaluru",560010,partnership,trading,address_change,submitted,XEAKY7267Z,29XEAKY7267ZZZV,2026-08-17
+SWS-27154,UBID-KA-CTCVH7615D,Shetty Industries,Kiran Shetty,"No. 146, Malleshwaram, Bengaluru",560003,pvt_ltd,construction,renewal,submitted,GPQKP5927H,29GPQKP5927HGZP,2025-01-10
+SWS-74032,UBID-KA-ZUQAV5905V,Hegde Services,Mohan Hegde,"No. 27, HSR Layout, Bengaluru",560102,pvt_ltd,manufacturing,new_registration,pending_dept,YDDCO2672U,29YDDCO2672UGZW,2025-10-11
+SWS-83385,UBID-KA-DCWER1590L,Murthy Associates,Vijay Murthy,"No. 150, Marathahalli, Bengaluru",560037,llp,technology,address_change,approved,OLBJY9036V,29OLBJY9036V6ZM,2025-06-16
+SWS-25118,UBID-KA-BPHGO6728J,Swamy Engineers,Deepa Swamy,"No. 59, MG Road, Bengaluru",560001,pvt_ltd,services,closure,rejected,FRKHB7356R,29FRKHB7356RLZ1,2025-02-09
+SWS-76469,UBID-KA-MSGIB8144A,Prasad Exports,Priya Prasad,"No. 134, Jayanagar, Bengaluru",560004,pvt_ltd,construction,renewal,pending_dept,YNSTR3063K,29YNSTR3063K7ZJ,2026-12-15
+SWS-98184,UBID-KA-AJJGN6279O,Nair Brothers,Anita Nair,"No. 114, Koramangala, Bengaluru",560034,pvt_ltd,services,address_change,approved,LFMXU1056K,29LFMXU1056K5ZF,2025-01-26
+SWS-25906,UBID-KA-GWWMP7547H,Gupta Traders,Kavita Gupta,"No. 38, Whitefield, Bengaluru",560066,llp,services,signatory_change,rejected,RATUC4195B,29RATUC4195BZZF,2026-03-30
+SWS-37110,UBID-KA-UHIOC5681H,Jain Manufacturing,Sunita Jain,"No. 70, Electronic City, Bengaluru",560100,llp,construction,closure,submitted,IXCDJ1243O,29IXCDJ1243OQZ3,2026-08-13
+SWS-52840,UBID-KA-VZMXF8657E,Agarwal Steel Works,Rekha Agarwal,"No. 160, Peenya, Bengaluru",560058,pvt_ltd,construction,renewal,pending_dept,NXPRC4812K,29NXPRC4812KDZT,2025-09-16
+SWS-24168,UBID-KA-YAHGA3496H,Mehta Chemicals Pvt Ltd,Neha Mehta,"No. 33, Rajajinagar, Bengaluru",560010,proprietorship,trading,closure,pending_dept,MCYMG3697Y,29MCYMG3697YAZJ,2026-02-11
+SWS-67091,UBID-KA-CQUKA7882P,Shah Textiles,Pooja Shah,"No. 28, Malleshwaram, Bengaluru",560003,pvt_ltd,trading,address_change,submitted,LJXLD1566R,29LJXLD1566RUZT,2025-10-13
+SWS-97026,UBID-KA-TWIRA9464G,Verma Construction Co.,Sanjay Verma,"No. 22, HSR Layout, Bengaluru",560102,pvt_ltd,construction,closure,rejected,GKOGM7402M,29GKOGM7402MFZJ,2026-03-12
+SWS-23446,UBID-KA-GXPIX9595T,Kulkarni IT Solutions,Manoj Kulkarni,"No. 73, Marathahalli, Bengaluru",560037,proprietorship,technology,renewal,pending_dept,ZVHJH7100J,29ZVHJH7100J8ZV,2026-05-06

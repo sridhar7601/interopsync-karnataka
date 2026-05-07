@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.local
+*.pem
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Backend artifacts
+backend/data/llm_cache/
